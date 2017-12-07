@@ -40,9 +40,9 @@ $route = $_GET['route'] ?? "/";
 
 $router = new RouteCollector();
 
-$router->controller('/', App\Controllers\HomeController::class);
-$router->controller('/decks', App\Controllers\DecksController::class);
-$router->controller('/cards', App\Controllers\CardsController::class);
+$router->controller('/', \App\Controllers\HomeController::class);
+$router->controller('/decks', \App\Controllers\DecksController::class);
+$router->controller('/cards', \App\Controllers\CardsController::class);
 
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 
