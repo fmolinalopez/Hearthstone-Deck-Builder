@@ -1,0 +1,33 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+    <div class="container">
+        <h1>HEARTHSTONE DECK BUILDER</h1>
+        <h2>Card Info:</h2>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Cost</th>
+                <th>Type</th>
+                <th>Attack</th>
+                <th>Health</th>
+                <th>Effect</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><img src="{{ card.image }}" alt="{{ card.name }} image"></td>
+                    <td>{{ card.name }}</td>
+                    <td>{{ card.cost }}</td>
+                    <td>{{ card.type }}</td>
+                    <td>{{ card.attack }}</td>
+                    <td>{{ card.heatlh }}</td>
+                    <td>{{ card.effect }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

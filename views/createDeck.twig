@@ -1,0 +1,44 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+<div class="container">
+    <h1>{{ webInfo.h1 }}</h1>
+    <form method="post">
+        <div class="form-group {%  if errors['name'] %}has-error{% endif %}">
+            <label for="name">Deck Name</label>
+            <input class="form-control" type="text" id="name" name="name" value="{{ deck.deckName }}">
+        </div>
+        {{ generateAlert(errors, 'name') }}
+        <div class="form-group">
+            <label for="cardList">List of cars</label>
+            <select class="form-control" name="cardList" id="cardList">
+                {% for card in cardList %}
+                <optgroup label="{{ card.name }}">
+                    <option value="{{ card.name }}">{{ card.name }}</option>
+                    <option value="{{ card.name  }}x2">{{ card.name  }}x2</option>
+                </optgroup>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <input class="btn btn-success" type="button" id="addBtn" value="Add Card to Deck">
+            <input class="btn btn-warning" type="button" id="deleteBtn" value="Delete Card From List">
+            <input class="btn btn-danger" type="button" id="clearBtn" value="Clear Card list">
+        </div>
+        <div class="form-group {%  if countError %}has-error{% endif %}">
+            <label for="deckCards">Current Cards</label>
+            <textarea name="deckCards" id="deckCards" cols="30" rows="10" class="form-control" readonly>{{ deck.cardList }}</textarea>
+            <textarea class="form-control" name="cardCount" id="cardCount" cols="30" rows="1" readonly>Total 0/15</textarea>
+        </div>
+        {{ generateAlert(countError, 'count') }}
+        <div class="form-group">
+            <input type="hidden" name="_method" value="{{ webInfo.method }}">
+            <button type="submit" class="btn btn-success">{{ webInfo.submit }}</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+{% block js %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="{{  '' | url }}js/addCard.js"></script>
+{% endblock %}
