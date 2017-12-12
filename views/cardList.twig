@@ -1,0 +1,13 @@
+{% extends 'layout.twig' %}
+{% block content %}
+
+    <div class="container">
+        <h1>HEARTHSTONE DECK BUILDER</h1>
+        <h2>Card list:</h2>
+
+        {% for card in cards %}
+        <a href="{{ base_url }}/cards/{{ card.name }}"><img src="{{ card.image }}" alt="Imagen de {{ card.name }}"></a>
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -213,5 +213,13 @@ class DecksController extends BaseController {
             'webInfo' => $webInfo,
         ]);
     }
+
+    public function deleteIndex(){
+        $id = $_REQUEST['id'];
+
+        $deck = Deck::destroy($id);
+
+        header('Location: ' . BASE_URL);
+    }
 }
 
