@@ -92,7 +92,7 @@ class CardsController extends BaseController{
                     'effect' => $card['effect']
                 ]);
 
-                header( 'Location: ' . BASE_URL . '/cards');
+                header( 'Location: ' . BASE_URL);
             }else {
                 $validationErrors = $validator->getMessages();
             }
