@@ -1,0 +1,68 @@
+{% extends 'layout.twig' %}
+{% block content %}
+    <div class="container">
+        <h1>Edit Hearthstone Card</h1>
+
+        <form method="post">
+            <div class="form-group">
+                <label for="image">Image URL</label>
+                <input class="form-control" type="url" id="image" name="image" value="{{ card.image }}" >
+            </div>
+            {{ generateAlert(validationErrors, 'image') }}
+
+            <div class="form-group">
+                <label for="name">Card Name</label>
+                <input class="form-control" type="text" id="name" name="name" value="{{ card.name }}" >
+            </div>
+            {{ generateAlert(validationErrors, 'name') }}
+
+            <div class="form-group">
+                <label for="cost">Card Cost</label>
+                <input class="form-control" type="number" id="cost" name="cost" value="{{ card.cost }}" >
+            </div>
+            {{ generateAlert(validationErrors, 'cost') }}
+            {{ generateAlert(errors, 'lessCost') }}
+            {{ generateAlert(errors, 'moreCost') }}
+
+            <div class="form-group">
+                <label for="type">Card Type</label>
+                <select class="form-control" name="type" id="type">
+                    <optgroup label="Minion Type">
+                        <option value="VanillaMinion">Minion</option>
+                        <option value="BeastMinion">Beast</option>
+                        <option value="ElementalMinion">Elemental</option>
+                        <option value="MurlocMinion">Murloc</option>
+                    </optgroup>
+                    <option value="spell">Spell</option>
+                    <option value="weapon">Weapon</option>
+                </select>
+            </div>
+            {{ generateAlert(validationErrors, 'type') }}
+
+            <div class="form-group">
+                <label for="attack">Card Attack(If it has it)</label>
+                <input class="form-control" type="number" id="attack"  name="attack" value="{{ card.attack }}">
+            </div>
+            {{ generateAlert(errors, 'lessAttack') }}
+            {{ generateAlert(errors, 'noAttack') }}
+
+            <div class="form-group">
+                <label for="health">Card Health(If it has it)</label>
+                <input class="form-control" type="number" id="health" name="health" value="{{ card.health }}">
+            </div>
+            {{ generateAlert(errors, 'lessHealth') }}
+            {{ generateAlert(errors, 'noHealth') }}
+
+            <div class="form-group">
+                <label for="effect">Card effect(If it has one)</label>
+                <textarea class="form-control" name="effect" id="effect" cols="30" rows="5">{{ card.effect }}</textarea>
+            </div>
+            {{ generateAlert(errors, 'noEffect') }}
+
+            <div class="form-group">
+                <input type="hidden" name="_method" value="{{ webInfo.method }}">
+                <button type="submit" class="btn btn-success">{{ webInfo.submit }}</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

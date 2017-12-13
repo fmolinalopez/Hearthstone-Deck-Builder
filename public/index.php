@@ -12,7 +12,7 @@ $baseDir = str_replace(
     '',
     $_SERVER['SCRIPT_NAME']);
 
-$baseUrl = "https://" . $_SERVER['HTTP_HOST'] . $baseDir;
+$baseUrl = "http://" . $_SERVER['HTTP_HOST'] . $baseDir;
 define('BASE_URL', $baseUrl);
 
 if(file_exists(__DIR__.'/../.env')){
@@ -58,6 +58,8 @@ $router->group(['before' => 'auth'], function ($router){
     $router->get('/logout', ['\App\Controllers\HomeController', 'getLogout']);
     $router->get('/cards/{id}', ['\App\Controllers\CardsController', 'getIndex']);
     $router->get('/cards', ['\App\Controllers\CardsController', 'getIndex']);
+    $router->get('/cards/edit/{id}', ['\App\Controllers\CardsController', 'getEdit']);
+    $router->put('/cards/edit/{id}', ['\App\Controllers\CardsController', 'putEdit']);
 });
 
 // Filtro para aplicar a rutas a USUARIOS NO AUTENTICADOS
