@@ -1,7 +1,6 @@
 <?php
 namespace App\Controllers;
 
-use App\Models\Deck;
 use App\Models\Cards;
 use Sirius\Validation\Validator;
 
