@@ -12,7 +12,7 @@ $baseDir = str_replace(
     '',
     $_SERVER['SCRIPT_NAME']);
 
-$baseUrl = "https://" . $_SERVER['HTTP_HOST'] . $baseDir;
+$baseUrl = "http://" . $_SERVER['HTTP_HOST'] . $baseDir;
 define('BASE_URL', $baseUrl);
 
 if(file_exists(__DIR__.'/../.env')){
