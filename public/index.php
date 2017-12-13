@@ -12,7 +12,7 @@ $baseDir = str_replace(
     '',
     $_SERVER['SCRIPT_NAME']);
 
-$baseUrl = "http://" . $_SERVER['HTTP_HOST'] . $baseDir;
+$baseUrl = "https://" . $_SERVER['HTTP_HOST'] . $baseDir;
 define('BASE_URL', $baseUrl);
 
 if(file_exists(__DIR__.'/../.env')){
@@ -80,6 +80,7 @@ $router->group(['before' => 'noAuth'], function ($router){
 
 // Rutas sin filtros
 $router->get('/',['\App\Controllers\HomeController', 'getIndex']);
+$router->controller('api', \App\Controllers\ApiController::class);
 //$router->post('/distros/{id}', ['\App\Controllers\DistrosController', 'postIndex']);
 //$router->controller('api', \App\Controllers\ApiController::class);
 

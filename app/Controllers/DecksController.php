@@ -2,7 +2,7 @@
 namespace App\Controllers;
 
 use App\Models\Deck;
-use App\Models\Cards;
+use App\Models\Card;
 use Sirius\Validation\Validator;
 
 class DecksController extends BaseController {
@@ -19,7 +19,7 @@ class DecksController extends BaseController {
             'method' => 'POST',
         ];
 
-        $cardList = Cards::all();
+        $cardList = Card::all();
 
         $deck = array_fill_keys(['name', 'cardList'], '');
 
@@ -91,7 +91,7 @@ class DecksController extends BaseController {
             }
         }
 
-        $cardList = Cards::all();
+        $cardList = Card::all();
 
         return $this->render('createDeck.twig', [
             'deck' => $deck,
@@ -113,7 +113,7 @@ class DecksController extends BaseController {
             'method' => 'PUT',
         ];
 
-        $cardList = Cards::all();
+        $cardList = Card::all();
 
         $deck = Deck::find($id);
 
@@ -189,7 +189,7 @@ class DecksController extends BaseController {
             }
         }
 
-        $cardList = Cards::all();
+        $cardList = Card::all();
 
         return $this->render('createDeck.twig', [
             'deck' => $deck,

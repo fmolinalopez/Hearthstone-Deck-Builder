@@ -1,7 +1,7 @@
 <?php
 namespace App\Controllers;
 
-use App\Models\Cards;
+use App\Models\Card;
 use Sirius\Validation\Validator;
 
 class CardsController extends BaseController{
@@ -16,7 +16,7 @@ class CardsController extends BaseController{
             'method' => 'PUT'
         ];
 
-        $card = Cards::find($id);
+        $card = Card::find($id);
 
         if (!$card){
             header( 'Location: ' . BASE_URL);
@@ -81,7 +81,7 @@ class CardsController extends BaseController{
             }
 
             if ($validator->validate($_POST) && empty($errors)){
-                $card = Cards::where('id', $id)->update([
+                $card = Card::where('id', $id)->update([
                     'image' => $card['image'],
                     'name' => $card['name'],
                     'cost' => $card['cost'],
@@ -111,7 +111,7 @@ class CardsController extends BaseController{
                 'title' => 'Card List - HearthstoneDb'
             ];
 
-            $cards = Cards::query()->orderBy('cost','asc')->get();
+            $cards = Card::query()->orderBy('cost','asc')->get();
             //$distros = Distro::all();
 
             return $this->render('cardList.twig', [
@@ -131,7 +131,7 @@ class CardsController extends BaseController{
                 $cardName = trim($name);
             }
 
-            $card = Cards::where('name', $cardName)->first();
+            $card = Card::where('name', $cardName)->first();
 
             if( !$card ){
                 return $this->render('404.twig', ['webInfo' => $webInfo]);
