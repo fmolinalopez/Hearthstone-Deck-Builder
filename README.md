@@ -50,7 +50,7 @@ Buttons Add Card to Deck, Delete Card From List and Clear Card List works the sa
 as creating a new deck, click Edit deck once you've finished editing it to apply changes.
 
 ### Deleting an existing deck ###
-Click the Delete button nex to the Edit button of a deck to delete that deck.
+Click the Delete button next to the Edit button of a deck to delete that deck.
 
 ### Card List ###
 Click on Card List to access the Card List page wich displays a list with the image of every card.
