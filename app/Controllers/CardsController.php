@@ -6,6 +6,13 @@ use Sirius\Validation\Validator;
 
 class CardsController extends BaseController{
 
+    /**
+     * Ruta {GET} /cards/edit/{id} que muestra el formulario de actualización de una carta.
+     *
+     * @param $id Código de la carta.
+     *
+     * @return string Render de la web con toda la información.
+     */
     public function getEdit($id){
         $error = array();
 
@@ -29,6 +36,14 @@ class CardsController extends BaseController{
         ]);
     }
 
+    /**
+     * Ruta {POST} /cards/edit/{id} que actualiza toda la informacion de una carta.
+     * Se usa el verbo POST porque la actualización se realiza en todos los campos de la db.
+     *
+     * @param $id Código de la carta.
+     *
+     * @return string Render de la web con toda la información.
+     */
     public function putEdit($id){
         $errors = array();
         $validationErrors = array();
@@ -105,6 +120,16 @@ class CardsController extends BaseController{
         ]);
     }
 
+    /**
+     * Ruta raiz [GET] /cards para la dirección cardList de la aplicación.
+     * En este caso se muestra una lista con la imagen de todas las cartas.
+     *
+     * Ruta [GET] /cards/{name} que muestra la página de detalle de una carta.
+     *
+     * @param $name Nombre de la carta.
+     *
+     * @return string Render de la web con toda la información.
+     */
     public function getIndex($name = null){
         if (is_null($name)){
             $webInfo = [

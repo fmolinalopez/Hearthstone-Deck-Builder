@@ -8,10 +8,20 @@ use Sirius\Validation\Validator;
 
 class RegisterController extends BaseController {
 
+    /**
+     * Ruta [GET] /registro que muestra el formulario de registro.
+     *
+     * @return string Render de la web con toda la información.
+     */
     public function getRegister(){
         return $this->render('auth/register.twig',[]);
     }
 
+    /**
+     * Ruta [POST] /registro que processa los datos de registro.
+     *
+     * @return string Render de la web con toda la información.
+     */
     public function postRegister(){
         $errors = [];
         $validator = new Validator();

@@ -14,6 +14,8 @@ class BaseController {
             'cache' => false
         ]);
 
+        // Añade $_SESSION a una variable global que se puede utilizar desde twig
+        // Para controlar las sesiones.
         $this->templateEngine->addGlobal('session', $_SESSION);
 
         // Extender Twig

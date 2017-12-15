@@ -9,10 +9,20 @@ use Sirius\Validation\Validator;
 
 class AuthController extends BaseController {
 
+    /**
+     * Ruta [GET] /login donde se muestr la página de logeo.
+     *
+     * @return string Render de la web con toda la información.
+     */
     public function getLogin(){
         return $this->render('auth/login.twig',[]);
     }
 
+    /**
+     * Ruta [POST] /login donde se procesan los datos del formulario.
+     *
+     * @return string Render de la web con toda la información.
+     */
     public function postLogin(){
         $validator = new Validator();
 
@@ -43,6 +53,9 @@ class AuthController extends BaseController {
         ]);
     }
 
+    /**
+     * Ruta [GET] /logout que permite al usuario deslogearse de la web.
+     */
     public function getLogout(){
         //session_destroy();
         unset($_SESSION['userId']);

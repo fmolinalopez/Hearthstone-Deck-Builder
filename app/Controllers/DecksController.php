@@ -7,6 +7,11 @@ use Sirius\Validation\Validator;
 
 class DecksController extends BaseController {
 
+    /**
+     * Ruta {GET} /decks/new que muestra el formulario de añadir un nuevo deck.
+     *
+     * @return string Render de la web con toda la información.
+     */
     public function getNew(){
 
         $errors = array();
@@ -32,6 +37,11 @@ class DecksController extends BaseController {
         ]);
     }
 
+    /**
+     * Ruta {POST} /decks/new que procesa la introducción de un nuevo deck.
+     *
+     * @return string Render de la web con toda la información.
+     */
     public function postNew(){
 
         $webInfo = [
@@ -102,6 +112,13 @@ class DecksController extends BaseController {
         ]);
     }
 
+    /**
+     * Ruta {GET} /decks/edit/{id} que muestra el formulairo de actualización de un deck.
+     *
+     * @param $id Código del deck
+     *
+     * @return string Render de la web con toda la información.
+     */
     public function getEdit($id){
         $errors = array();
         $error = false;
@@ -130,6 +147,14 @@ class DecksController extends BaseController {
         ]);
     }
 
+    /**
+     * Ruta {PUT} /decks/edit/{id} que actualiza toda la información de un deck.
+     * Se usa el verbo PUT porque la actualización se realiza en todos los campos de la db.
+     *
+     * @param $id Código del deck
+     *
+     * @return string Render de la web con toda la información.
+     */
     public function putEdit($id){
 
         $webInfo = [
@@ -200,6 +225,12 @@ class DecksController extends BaseController {
         ]);
     }
 
+    /**
+     * Ruta raiz {GET} /decks para la dirección de la aplicación.
+     * En este caso se muestra la lista de decks.
+     *
+     * @return string Render de la web con toda la información.
+     */
     public function getIndex(){
         $webInfo = [
             'title' => 'Página de Inicio - HearthstoneDB'
