@@ -24,7 +24,7 @@ Once you've added it run **_composer install_** command again.
 
 ## Using the app ##
 You'll need to **create** an account to use the app, go to Access menu on top right and click Registro and proceed to register.
-Once you've registered go go to the Access menu and log in.
+Once you're registered go to the Access menu and log in.
 Now that you're logged in you can use the app.
 
 ### Create New Deck ###
