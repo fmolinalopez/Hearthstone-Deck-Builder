@@ -10,18 +10,6 @@ You have **_.env-example_** as an example of how to configure it.
 You need composer installed to run this app.
 Once you have composer installed run **_composer install_** command to install all dependencies required for the app.
 
-## Autoload ##
-You have to add 
-```
-"autoload": {
-           "psr-4":{
-               "App\\": "app/"
-           }
-       }
-```
-to the composer.json file that generates when you install project dependencies.
-Once you've added it run **_composer install_** command again.
-
 ## Using the app ##
 You'll need to **create** an account to use the app, go to Access menu on top right and click Registro and proceed to register.
 Once you're registered go to the Access menu and log in.
